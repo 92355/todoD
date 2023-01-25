@@ -6,12 +6,6 @@ bot = commands.Bot(command_prefix = '/')
 
 
 
-# 사용자의 텍스트 그대로 출력하기
-# @bot.command()
-# async def 안녕(ctx):
-#     await ctx.send("{}이라고 하셨군요, 반갑습니다 {}님!".format(
-#         ctx.message.content, ctx.author.name))
-
 @bot.event
 async def on_ready():
     print("starting...")
