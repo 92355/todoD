@@ -214,5 +214,5 @@ async def 네(ctx):
 async def 아니오(ctx):
     await ctx.send('일정이 유지됩니다.')
 
-bot.run(os.environ['token'])
+bot.run(os.environ[token])
 
