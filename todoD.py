@@ -2,20 +2,20 @@ import os
 import discord
 from discord.ext import commands
 
-bot = commands.Bot(command_prefix = '/')
+client = commands.client(command_prefix = '/')
 
 
 
 
-@bot.event
+@client.event
 async def on_ready():
     print("starting...")
 
-@bot.command()
+@client.command()
 async def 안녕(ctx):
     await ctx.send("안녕!")
 
-@bot.command()
+@client.command()
 async def 명령어(ctx):
     helpembed=discord.Embed(title="명령어 모음집", description="명령어 모음집", color=0xcca4a4)
     helpembed.add_field(name="일정등록", value="ex) /월요일 발탄12시", inline=True)
@@ -24,7 +24,7 @@ async def 명령어(ctx):
     helpembed.add_field(name="일정초기화", value="/초기화", inline=False)
     await ctx.send(embed=helpembed)
 
-@bot.command()
+@client.command()
 async def 월요일(ctx):
     msg = ctx.message.content[4: ]
     await ctx.send(" '[{}]' 월요일 일정에 저장되었습니다. ".format(
@@ -32,7 +32,7 @@ async def 월요일(ctx):
     file = open('mon.txt', 'w')    # hello.txt 파일을 쓰기 모드(w)로 열기. 파일 객체 반환
     file.write('{}'.format(msg))      # 파일에 문자열 저장
     file.close()
-@bot.command()
+@client.command()
 async def 화요일(ctx):
     msg = ctx.message.content[4: ]
     await ctx.send(" '[{}]' 화요일 일정에 저장되었습니다. ".format(
@@ -40,7 +40,7 @@ async def 화요일(ctx):
     file = open('tue.txt', 'w')    # hello.txt 파일을 쓰기 모드(w)로 열기. 파일 객체 반환
     file.write('{}'.format(msg))      # 파일에 문자열 저장
     file.close() 
-@bot.command()
+@client.command()
 async def 수요일(ctx):
     msg = ctx.message.content[4: ]
     await ctx.send(" '[{}]' 수요일 일정에 저장되었습니다. ".format(
@@ -48,7 +48,7 @@ async def 수요일(ctx):
     file = open('wed.txt', 'w')    # hello.txt 파일을 쓰기 모드(w)로 열기. 파일 객체 반환
     file.write('{}'.format(msg))      # 파일에 문자열 저장
     file.close() 
-@bot.command()
+@client.command()
 async def 목요일(ctx):
     msg = ctx.message.content[4: ]
     await ctx.send(" '[{}]' 목요일 일정에 저장되었습니다. ".format(
@@ -56,7 +56,7 @@ async def 목요일(ctx):
     file = open('thu.txt', 'w')    # hello.txt 파일을 쓰기 모드(w)로 열기. 파일 객체 반환
     file.write('{}'.format(msg))      # 파일에 문자열 저장
     file.close() 
-@bot.command()
+@client.command()
 async def 금요일(ctx):
     msg = ctx.message.content[4: ]
     await ctx.send(" '[{}]' 금요일 일정에 저장되었습니다. ".format(
@@ -64,7 +64,7 @@ async def 금요일(ctx):
     file = open('fri.txt', 'w')    # hello.txt 파일을 쓰기 모드(w)로 열기. 파일 객체 반환
     file.write('{}'.format(msg))      # 파일에 문자열 저장
     file.close() 
-@bot.command()
+@client.command()
 async def 토요일(ctx):
     msg = ctx.message.content[4: ]
     await ctx.send(" '[{}]' 토요일 일정에 저장되었습니다. ".format(
@@ -72,7 +72,7 @@ async def 토요일(ctx):
     file = open('sat.txt', 'w')    # hello.txt 파일을 쓰기 모드(w)로 열기. 파일 객체 반환
     file.write('{}'.format(msg))      # 파일에 문자열 저장
     file.close() 
-@bot.command()
+@client.command()
 async def 일요일(ctx):
     msg = ctx.message.content[4: ]
     await ctx.send(" '[{}]' 일요일 일정에 저장되었습니다. ".format(
@@ -82,7 +82,7 @@ async def 일요일(ctx):
     file.close()  
 
 
-@bot.command()#월요일 일정 보기
+@client.command()#월요일 일정 보기
 async def 월요일일정(ctx):
     file = open('mon.txt', 'r')   
     mo = file.read()
@@ -92,7 +92,7 @@ async def 월요일일정(ctx):
     await ctx.send(embed=monembed)
     file.close()
 
-@bot.command()#화요일 일정 보기
+@client.command()#화요일 일정 보기
 async def 화요일일정(ctx):
 
     file = open('tue.txt', 'r')   
@@ -103,7 +103,7 @@ async def 화요일일정(ctx):
     await ctx.send(embed=tueembed)
     file.close()
 
-@bot.command()#수요일 일정 보기
+@client.command()#수요일 일정 보기
 async def 수요일일정(ctx):
     file = open('wed.txt', 'r')   
     we = file.read()
@@ -113,7 +113,7 @@ async def 수요일일정(ctx):
     await ctx.send(embed=wedembed)
     file.close()
 
-@bot.command()#목요일 일정 보기
+@client.command()#목요일 일정 보기
 async def 목요일일정(ctx):
     file = open('thu.txt', 'r')   
     th = file.read()
@@ -123,7 +123,7 @@ async def 목요일일정(ctx):
     await ctx.send(embed=thuembed)
     file.close()
 
-@bot.command()#금요일 일정 보기
+@client.command()#금요일 일정 보기
 async def 금요일일정(ctx):
     file = open('fri.txt', 'r')   
     fr = file.read()
@@ -133,7 +133,7 @@ async def 금요일일정(ctx):
     await ctx.send(embed=friembed)
     file.close()
 
-@bot.command()#토요일 일정 보기
+@client.command()#토요일 일정 보기
 async def 토요일일정(ctx):
     file = open('sat.txt', 'r')   
     sa = file.read()
@@ -143,7 +143,7 @@ async def 토요일일정(ctx):
     await ctx.send(embed=satembed)
     file.close()
 
-@bot.command()#일요일 일정 보기
+@client.command()#일요일 일정 보기
 async def 일요일일정(ctx):
     file = open('sun.txt', 'r')   
     su = file.read()
@@ -153,7 +153,7 @@ async def 일요일일정(ctx):
     await ctx.send(embed=sunembed)
     file.close()
 
-@bot.command()
+@client.command()
 async def 전체일정(ctx):
     file = open('mon.txt', 'r')   
     mo = file.read()
@@ -182,10 +182,10 @@ async def 전체일정(ctx):
     await ctx.send(embed=embed)
     file.close()
 
-@bot.command()
+@client.command()
 async def 전체초기화(ctx):
     await ctx.send('모든 일정을 초기화 할까요?(초기화후 복구 불가능) \n [/네 or /아니오]')
-@bot.command()
+@client.command()
 async def 네(ctx):
     await ctx.send('일정이 초기화 되었습니다.')
     file = open('mon.txt', 'w')    
@@ -211,9 +211,8 @@ async def 네(ctx):
     file.close()
 
 
-@bot.command()
+@client.command()
 async def 아니오(ctx):
     await ctx.send('일정이 유지됩니다.')
 
-bot.run(os.environ['token'])
-
+client.run(os.environ['token'])
