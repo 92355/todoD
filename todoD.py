@@ -32,6 +32,7 @@ async def 월요일(ctx):
     file = open('mon.txt', 'w')    # hello.txt 파일을 쓰기 모드(w)로 열기. 파일 객체 반환
     file.write('{}'.format(msg))      # 파일에 문자열 저장
     file.close()
+    
 @client.command()
 async def 화요일(ctx):
     msg = ctx.message.content[4: ]
