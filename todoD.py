@@ -2,7 +2,7 @@ import os
 import discord
 from discord.ext import commands
 
-client = commands.client(command_prefix = '/')
+client = commands.Bot(command_prefix = '/')
 
 
 
