@@ -1,1 +1,1 @@
-Discord.py
+Discord.py == 1.7.3
