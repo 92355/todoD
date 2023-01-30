@@ -1,1 +1,1 @@
-Worker: python3 todoD.py
+Worker: python todoD.py
